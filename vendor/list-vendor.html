@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- Hamburger -->
+    <button
+      class="hamburger"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="sidebar"
+      id="hamburgerBtn"
+    >
+      ☰
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar closed py-3" id="sidebar">
+      <nav>
+        <div class="sidebar-section">
+          <h6 class="sidebar-title">Dashboard</h6>
+          <ul class="nav flex-column">
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../index.html">Home</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <button class="sidebar-toggle" aria-expanded="false">Vendor</button>
+          <ul class="nav flex-column" hidden>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3 active" href="list-vendor.html"
+                >List Vendor</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="add-vendor.html">Add Vendor</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <button class="sidebar-toggle" aria-expanded="false">Product</button>
+          <ul class="nav flex-column" hidden>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../product/list-product.html"
+                >List Product</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../product/add-product.html"
+                >Add Product</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <button class="sidebar-toggle" aria-expanded="false">Category</button>
+          <ul class="nav flex-column" hidden>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../category/list-category.html"
+                >List Category</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../category/add-category.html"
+                >Add Category</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <button class="sidebar-toggle" aria-expanded="false">
+            Order Management
+          </button>
+          <ul class="nav flex-column" hidden>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../customer/customer.html"
+                >Customer</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../order/list-order.html"
+                >List Order</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../order/add-order.html"
+                >Add Order</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Overlay -->
+    <div id="overlay"></div>
+
+    <!-- Main content -->
+    <!-- Main content -->
+    <main class="content p-4">
+      <h1 class="mb-4">List of Vendors</h1>
+
+      <div class="table-responsive">
+        <table
+          class="table table-striped table-hover align-middle"
+          id="vendorsTable"
+        >
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Vendor Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Status</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              data-id="1"
+              data-name="Fresh Farms Ltd."
+              data-email="john@freshfarms.com"
+              data-phone="+1 555-123-4567"
+              data-status="Active"
+            >
+              <th scope="row">1</th>
+              <td>Fresh Farms Ltd.</td>
+              <td>john@freshfarms.com</td>
+              <td>+1 555-123-4567</td>
+              <td><span class="badge bg-success">Active</span></td>
+              <td>
+                <button
+                  class="btn btn-sm btn-primary editBtn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editVendorModal"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-sm btn-danger deleteBtn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteVendorModal"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <tr
+              data-id="2"
+              data-name="Green Valley Co."
+              data-email="alice@greenvalley.com"
+              data-phone="+1 555-987-6543"
+              data-status="Inactive"
+            >
+              <th scope="row">2</th>
+              <td>Green Valley Co.</td>
+              <td>alice@greenvalley.com</td>
+              <td>+1 555-987-6543</td>
+              <td><span class="badge bg-secondary">Inactive</span></td>
+              <td>
+                <button
+                  class="btn btn-sm btn-primary editBtn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editVendorModal"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-sm btn-danger deleteBtn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteVendorModal"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <tr
+              data-id="3"
+              data-name="Sunshine Suppliers"
+              data-email="michael@sunshine.com"
+              data-phone="+1 555-222-3333"
+              data-status="Active"
+            >
+              <th scope="row">3</th>
+              <td>Sunshine Suppliers</td>
+              <td>michael@sunshine.com</td>
+              <td>+1 555-222-3333</td>
+              <td><span class="badge bg-success">Active</span></td>
+              <td>
+                <button
+                  class="btn btn-sm btn-primary editBtn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editVendorModal"
+                >
+                  Edit
+                </button>
+                <button
+                  class="btn btn-sm btn-danger deleteBtn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteVendorModal"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Edit Vendor Modal -->
+      <div
+        class="modal fade"
+        id="editVendorModal"
+        tabindex="-1"
+        aria-labelledby="editVendorModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <form id="editVendorForm" class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editVendorModalLabel">Edit Vendor</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="vendorId" name="vendorId" />
+              <div class="mb-3">
+                <label for="vendorName" class="form-label">Vendor Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="vendorName"
+                  name="vendorName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="vendorEmail" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="vendorEmail"
+                  name="vendorEmail"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="vendorPhone" class="form-label">Phone</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="vendorPhone"
+                  name="vendorPhone"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="vendorStatus" class="form-label">Status</label>
+                <select
+                  class="form-select"
+                  id="vendorStatus"
+                  name="vendorStatus"
+                  required
+                >
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Delete Vendor Modal -->
+      <div
+        class="modal fade"
+        id="deleteVendorModal"
+        tabindex="-1"
+        aria-labelledby="deleteVendorModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteVendorModalLabel">
+                Delete Vendor
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete
+              <strong id="deleteVendorName"></strong>?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                id="confirmDeleteBtn"
+                type="button"
+                class="btn btn-danger"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const editModal = new bootstrap.Modal(
+          document.getElementById("editVendorModal")
+        );
+        const deleteModal = new bootstrap.Modal(
+          document.getElementById("deleteVendorModal")
+        );
+
+        let selectedVendorId = null;
+
+        // Edit buttons
+        document.querySelectorAll(".editBtn").forEach((button) => {
+          button.addEventListener("click", (e) => {
+            const tr = e.target.closest("tr");
+            selectedVendorId = tr.dataset.id;
+
+            // Fill form inputs with current vendor data
+            document.getElementById("vendorId").value = selectedVendorId;
+            document.getElementById("vendorName").value = tr.dataset.name;
+            document.getElementById("vendorEmail").value = tr.dataset.email;
+            document.getElementById("vendorPhone").value = tr.dataset.phone;
+            document.getElementById("vendorStatus").value = tr.dataset.status;
+
+            editModal.show();
+          });
+        });
+
+        // Delete buttons
+        document.querySelectorAll(".deleteBtn").forEach((button) => {
+          button.addEventListener("click", (e) => {
+            const tr = e.target.closest("tr");
+            selectedVendorId = tr.dataset.id;
+            document.getElementById("deleteVendorName").textContent =
+              tr.dataset.name;
+            deleteModal.show();
+          });
+        });
+
+        // Handle edit form submit
+        document
+          .getElementById("editVendorForm")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Get updated values
+            const id = document.getElementById("vendorId").value;
+            const name = document.getElementById("vendorName").value;
+            const email = document.getElementById("vendorEmail").value;
+            const phone = document.getElementById("vendorPhone").value;
+            const status = document.getElementById("vendorStatus").value;
+
+            // Find the row and update data attributes and cells
+            const row = document.querySelector(`tr[data-id='${id}']`);
+            if (row) {
+              row.dataset.name = name;
+              row.dataset.email = email;
+              row.dataset.phone = phone;
+              row.dataset.status = status;
+
+              row.cells[1].textContent = name;
+              row.cells[3].textContent = email;
+              row.cells[4].textContent = phone;
+              row.cells[5].innerHTML =
+                status === "Active"
+                  ? `<span class="badge bg-success">Active</span>`
+                  : `<span class="badge bg-secondary">Inactive</span>`;
+            }
+
+            editModal.hide();
+            alert("Vendor details updated! (Simulated)");
+          });
+
+        // Handle delete confirmation
+        document
+          .getElementById("confirmDeleteBtn")
+          .addEventListener("click", () => {
+            if (selectedVendorId) {
+              const row = document.querySelector(
+                `tr[data-id='${selectedVendorId}']`
+              );
+              if (row) {
+                row.remove();
+              }
+              deleteModal.hide();
+              alert("Vendor deleted! (Simulated)");
+            }
+          });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../chart.js"></script>
+    <script src="../navbar.js"></script>
+  </body>
+</html>

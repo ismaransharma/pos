@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- Hamburger -->
+    <button
+      class="hamburger"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="sidebar"
+      id="hamburgerBtn"
+    >
+      ☰
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar closed py-3" id="sidebar">
+      <nav>
+        <div class="sidebar-section">
+          <h6 class="sidebar-title">Dashboard</h6>
+          <ul class="nav flex-column">
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../index.html">Home</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <button class="sidebar-toggle" aria-expanded="false">Vendor</button>
+          <ul class="nav flex-column" hidden>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../vendor/list-vendor.html"
+                >List Vendor</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../vendor/add-vendor.html"
+                >Add Vendor</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <button class="sidebar-toggle" aria-expanded="false">Product</button>
+          <ul class="nav flex-column" hidden>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../product/list-product.html"
+                >List Product</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../product/add-product.html"
+                >Add Product</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <button class="sidebar-toggle" aria-expanded="false">Category</button>
+          <ul class="nav flex-column" hidden>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../category/list-category.html"
+                >List Category</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../category/add-category.html"
+                >Add Category</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <button class="sidebar-toggle" aria-expanded="false">
+            Order Management
+          </button>
+          <ul class="nav flex-column" hidden>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3 active" href="customer.html">Customer</a>
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../order/list-order.html"
+                >List Order</a
+              >
+            </li>
+            <li class="nav-item submenu">
+              <a class="nav-link mx-3" href="../order/add-order.html"
+                >Add Order</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Overlay -->
+    <div id="overlay"></div>
+
+    <!-- Main Content Section -->
+    <main class="content" style="margin-left: 2rem">
+      <section id="wrapper">
+        <div class="container py-3">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                  <h4 class="fs-5">Edit Customer</h4>
+                </div>
+                <div class="card-body">
+                  <form
+                    action="{{ route('customers.update', $customer->id) }}"
+                    method="POST"
+                  >
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Customer Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        class="form-control fs-6"
+                        value=""
+                        readonly
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="total_amount" class="form-label"
+                        >Total Amount Spent</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        name="total_amount"
+                        class="form-control fs-6"
+                        value=""
+                        readonly
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="credit_amount" class="form-label"
+                        >Credit Amount</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        name="credit_amount"
+                        class="form-control fs-6"
+                        value=""
+                      />
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                      <a href="customer.html" class="btn btn-secondary fs-65"
+                        >Cancel</a
+                      >
+                      <button type="submit" class="btn btn-primary fs-6">
+                        Update
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../chart.js"></script>
+    <script src="../navbar.js"></script>
+  </body>
+</html>
