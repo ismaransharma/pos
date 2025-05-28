@@ -112,20 +112,69 @@
     <main class="content p-4">
       <h1>Add Product</h1>
       <form id="addProductForm" class="needs-validation" novalidate>
-        <div class="mb-3">
-          <label for="productName" class="form-label">Product Name</label>
-          <input
-            type="text"
-            id="productName"
-            class="form-control"
-            placeholder="Enter product name"
-            required
-          />
-          <div class="invalid-feedback">Please enter the product name.</div>
+        <!-- Vendor and Date -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="vendor" class="form-label">Vendor*</label>
+              <input
+                type="text"
+                id="vendor"
+                class="form-control"
+                placeholder="Enter vendor name"
+                required
+              />
+              <div class="invalid-feedback">Please enter the vendor name.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="datetime" class="form-label">Date*</label>
+              <input
+                type="date"
+                id="datetime"
+                class="form-control"
+                placeholder="Enter Date"
+                required
+              />
+              <div class="invalid-feedback">Please enter the date.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barcode and Product -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="barcode" class="form-label">Barcode</label>
+              <input
+                type="text"
+                id="barcode"
+                class="form-control"
+                placeholder="Enter the Barcode"
+                required
+              />
+              <div class="invalid-feedback">Please enter the barcode.</div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="productName" class="form-label">Product Name*</label>
+              <input
+                type="text"
+                id="productName"
+                class="form-control"
+                placeholder="Enter product name"
+                required
+              />
+              <div class="invalid-feedback">Please enter the product name.</div>
+            </div>
+          </div>
         </div>
 
         <div class="mb-3">
-          <label for="productCategory" class="form-label">Category</label>
+          <label for="productCategory" class="form-label">Category*</label>
           <select id="productCategory" class="form-select" required>
             <option value="" disabled selected>Select Category</option>
             <option value="Electronics">Electronics</option>
@@ -140,7 +189,7 @@
         <div class="mb-3">
           <div class="row">
             <div class="col-md-6">
-              <label for="stock" class="form-label">Stock</label>
+              <label for="stock" class="form-label">Stock*</label>
               <input
                 type="number"
                 id="stock"
@@ -154,7 +203,7 @@
               </div>
             </div>
             <div class="col-md-6">
-              <label for="productUnit" class="form-label">Unit</label>
+              <label for="productUnit" class="form-label">Unit*</label>
               <select id="productUnit" class="form-select" required>
                 <option value="" disabled selected>Select Unit</option>
                 <option value="pcks">Packets</option>
@@ -171,7 +220,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="rate" class="form-label">Rate</label>
+          <label for="rate" class="form-label">Rate*</label>
           <input
             type="number"
             id="rate"
@@ -185,7 +234,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="sellingPrice" class="form-label">Selling Price</label>
+          <label for="sellingPrice" class="form-label">Selling Price*</label>
           <input
             type="number"
             id="sellingPrice"
@@ -198,18 +247,6 @@
           <div class="invalid-feedback">Please enter the selling price.</div>
         </div>
 
-        <div class="mb-3">
-          <label for="vendor" class="form-label">Vendor</label>
-          <input
-            type="text"
-            id="vendor"
-            class="form-control"
-            placeholder="Enter vendor name"
-            required
-          />
-          <div class="invalid-feedback">Please enter the vendor name.</div>
-        </div>
-
         <button type="submit" class="btn btn-primary">Add Product</button>
       </form>
     </main>
@@ -218,6 +255,7 @@
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../todaydate.js"></script>
     <script src="../chart.js"></script>
     <script src="../navbar.js"></script>
   </body>
